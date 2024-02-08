@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="zh-tw">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>如何獲得bearer token(中文)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        @import url('https://fonts.googleapis.com/css?family=Anton');
+
+        body {
+            padding: 20px;
+            background-color: #282c34;
+            color: #dfdfdf;
+            font-family: "Roboto Mono";
+            font-size: 14px;
+            line-height: 22px;
+            margin: 0 auto;
+            max-width: 960px;
+        }
+
+        pre {
+            color: #ecbe7b;
+        }
+
+        blockquote {
+            color: #ecbe7b;
+        }
+
+        a {
+            color: #c678dd;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #51afef;
+        }
+
+        h1 {
+            font-size: 20px;
+            color: #ff6c6b;
+            margin-bottom: 0px;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 16px;
+            color: #51afef;
+            margin-bottom: 0px;
+        }
+
+        li {
+            color: #98be65;
+        }
+
+        #codeWrapper {
+            margin: 0.5rem 0;
+            align-items: center;
+            display: flex;
+        }
+
+        code {
+            background-color: #434852;
+            color: white;
+            border-radius: 3px;
+            padding: 2px;
+            padding-left: 5px;
+            padding-right: 5px;
+
+        }
+
+        footer {
+            border-left: 3px solid #4c5054;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+
+        #codeWrapper i {
+            font-size: 1rem;
+            user-select: none;
+            margin-left: 0.2rem;
+            color: #fff;
+            background: #434852;
+            padding: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #codeWrapper i:hover {
+            transition: background 0.25s ease-in-out;
+            background: #98be65;
+
+        }
+
+        #code {
+            text-align: center;
+            width: auto;
+            background-color: #434852;
+            color: white;
+            border-radius: 3px;
+            padding: 2px;
+            padding-left: 5px;
+            padding-right: 5px;
+            font-family: "Roboto Mono";
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="how-to-get-your-minecraft-bearer-token">
+        如何獲得您的 Minecraft bearer token
+    </h1>
+    <h2 id="what-is-a-minecraft-bearer-token-">
+        什麼是Minecraft bearer token?
+    </h2>
+    <p>
+        A Minecraft bearer token 是個<a href="https://jwt.io">JWT token</a> 用於驗證 <a href="https://mojang-api-docs.gapple.pw/">Minecraft's private APIs</a>.
+    </p>
+    <p>
+        注意⚠️: Bearer tokens 只能使用 <b>24 小時</b>.
+    </p>
+    <h2 id="get-your-bearer-token">
+        獲得您的bearer token
+
+    </h2>
+    <ul>
+        <li>
+            登入您的 Minecraft account 在
+            <a href="https://minecraft.net">minecraft.net</a>
+        </li>
+        <li>
+            打開Chrome / Firefox 開發者 (<b>ctrl + shift + i</b> 或 <b>f12</b>) <em>或</em> 右鍵
+            然後點 <b>檢查</b>
+        </li>
+        <li>
+            點擊&quot;控制台&quot;
+
+        </li>
+        <li>將此程式碼貼到控制台中：
+            <div id="codeWrapper">
+                <div id="code">console.log(`; ${document.cookie}`.split('; bearer_token=').pop().split(';').shift())
+                </div>
+                <i class="material-icons">content_copy</i>
+            </div>
+        <li>複製控制台中顯示的bearer toeken</li>
+    </ul>
+    <p>您現在擁有了Minecraft帳戶的bearer token.</p>
+    <p><b>重要：如果您向某人提供此token，他們可以完全控制您的 Minecraft 帳戶。</b></p>
+    <footer>This page is made by <a href="https://kqzz.me">Kqzz</a> with source code available <a
+            href="https://github.com/Kqzz/mc-bearer-token">here</a><br>
+        由<a href="https://github.com/senina4">senina4</a>翻譯
+    </footer>
+    <script>
+        document.querySelector('.material-icons').addEventListener('click', () => {
+            navigator.clipboard.writeText(document.querySelector('#code').innerHTML);
+        })
+    </script>
+</body>
+
+</html>
