@@ -1,6 +1,6 @@
 baseURL = 'https://senina4.github.io/'
 locale = 'zh-tw'
-title = 'Brew site'
+title = "Brew's site"
 theme = "PaperMod"
 
 
