@@ -1,6 +1,8 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = 'https://senina4.github.io/'
+locale = 'zh-tw'
+title = 'Brew site'
+theme = "PaperMod"
+
 
 [caches]
   [caches.images]
